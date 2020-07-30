@@ -2,11 +2,11 @@ os: linux
 dist: bionic
 group: edge
 
-     - services: 
-       - mongod
-       before_script:
-       - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
-       script:
-       - sleep 10
-       - systemctl status mongodb
-       - netstat -nltp
+services: 
+- mongod
+before_script:
+- mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+script:
+- sleep 10
+- systemctl status mongodb
+- netstat -nltp
