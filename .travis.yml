@@ -2,12 +2,18 @@ os: linux
 dist: bionic
 group: edge
 
-services: 
-- mongodb
-before_script:
-- mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+# services: 
+# - mongodb
+# before_script:
+# - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+# script:
+# - sleep 11
+# - systemctl status mongodb
+# - systemctl status mongod
+# - netstat -nltp
+
+addons:
+  mariadb: '10.3'
 script:
-- sleep 11
-- systemctl status mongodb
-- systemctl status mongod
-- netstat -nltp
+- mysql -e 'CREATE DATABASE myapp_test;'
+- sudo mysql -e 'CREATE DATABASE myapp_test2;'
