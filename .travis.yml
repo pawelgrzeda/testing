@@ -9,4 +9,5 @@ before_script:
 script:
 - sleep 10
 - systemctl status mongodb
+- systemctl status mongod
 - netstat -nltp
