@@ -1,0 +1,10 @@
+os: linux
+dist: bionic
+group: edge
+
+services: 
+- postgresql
+script:
+- sleep 10
+- systemctl status postgresql
+- netstat -nltp
