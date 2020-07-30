@@ -6,6 +6,7 @@ services:
 - postgresql
 script:
 - echo $TRAVIS_DIST
+- whereis travis_setup_postgresql
 - sleep 10
 - systemctl status postgresql
 - netstat -nltp
