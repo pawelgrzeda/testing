@@ -2,11 +2,11 @@ os: linux
 dist: bionic
 group: edge
 
-services: 
-- postgresql
-script:
-- echo $TRAVIS_DIST
-- whereis travis_setup_postgresql
-- sleep 10
-- systemctl status postgresql
-- netstat -nltp
+     - services: 
+       - mongod
+       before_script:
+       - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+       script:
+       - sleep 10
+       - systemctl status mongodb
+       - netstat -nltp
