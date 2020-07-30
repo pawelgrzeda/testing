@@ -5,6 +5,7 @@ group: edge
 services: 
 - postgresql
 script:
+- echo $TRAVIS_DIST
 - sleep 10
 - systemctl status postgresql
 - netstat -nltp
