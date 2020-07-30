@@ -3,7 +3,7 @@ dist: bionic
 group: edge
 
 services: 
-- mongod
+- mongodb
 before_script:
 - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 script:
