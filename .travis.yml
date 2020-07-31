@@ -15,5 +15,18 @@ group: edge
 addons:
   mariadb: '10.3'
 script:
-- mysql -e 'CREATE DATABASE myapp_test;'
-- sudo mysql -e 'CREATE DATABASE myapp_test2;'
+  - mysql -e 'CREATE DATABASE myapp_test;'
+  - sudo mysql -e 'CREATE DATABASE myapp_test2;'
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
