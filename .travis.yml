@@ -12,29 +12,30 @@ group: edge
 # - systemctl status mongod
 # - netstat -nltp
 
-language: erlang
-otp_release:
-  - 18.2.1
-script:
-- date
-- erl -noshell -eval 'io:fwrite("Hello, World!\n"), init:stop().'
-
-# addons:
-#   mariadb: '10.3'
+# language: erlang
+# otp_release:
+#   - 18.2.1
 # script:
-#   - mysql -e 'CREATE DATABASE myapp_test;'
-#   - sudo mysql -e 'CREATE DATABASE myapp_test2;'
-#   - mysql -e "SELECT * FROM mysql.user;"
-#   - sleep 550
-#   - echo "test"
-#   - sleep 550
-#   - echo "test"
-#   - sleep 550
-#   - echo "test"
-#   - sleep 550
-#   - echo "test"
-#   - sleep 550
-#   - echo "test"
-#   - sleep 550
-#   - echo "test"
-#   - sleep 550
+# - date
+# - erl -noshell -eval 'io:fwrite("Hello, World!\n"), init:stop().'
+
+addons:
+  mariadb: '10.3'
+script:
+  - ls -la /var/run/mysqld
+  - mysql -e 'CREATE DATABASE myapp_test;'
+  - sudo mysql -e 'CREATE DATABASE myapp_test2;'
+  - mysql -e "SELECT * FROM mysql.user;"
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
+  - echo "test"
+  - sleep 550
