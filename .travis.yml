@@ -26,3 +26,4 @@ script:
   - mysql -e 'CREATE DATABASE myapp_test;'
   - sudo mysql -e 'CREATE DATABASE myapp_test2;'
   - mysql -e "SELECT * FROM mysql.user;"
+  - sudo ls -la /etc | grep init
