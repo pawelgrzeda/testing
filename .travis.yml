@@ -13,6 +13,8 @@ group: edge
 # - netstat -nltp
 
 language: erlang
+otp_release:
+  - 18.2.1
 script:
 - date
 - erl -noshell -eval 'io:fwrite("Hello, World!\n"), init:stop().'
