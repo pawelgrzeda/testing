@@ -2,15 +2,17 @@ os: linux
 dist: bionic
 group: edge
 
-# services: 
-# - mongodb
-# before_script:
-# - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
-# script:
-# - sleep 11
-# - systemctl status mongodb
-# - systemctl status mongod
-# - netstat -nltp
+services: 
+- mongodb
+before_script:
+- mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+script:
+- sleep 11
+- systemctl status mongodb
+- systemctl status mongod
+- netstat -nltp
+- sudo ls -la /etc | grep init
+- sudo ls -la /etc/init
 
 # language: erlang
 # otp_release:
@@ -19,11 +21,11 @@ group: edge
 # - date
 # - erl -noshell -eval 'io:fwrite("Hello, World!\n"), init:stop().'
 
-addons:
-  mariadb: '10.3'
-script:
-  - ls -la /var/run/mysqld
-  - mysql -e 'CREATE DATABASE myapp_test;'
-  - sudo mysql -e 'CREATE DATABASE myapp_test2;'
-  - mysql -e "SELECT * FROM mysql.user;"
-  - sudo ls -la /etc | grep init
+# addons:
+#   mariadb: '10.3'
+# script:
+#   - ls -la /var/run/mysqld
+#   - mysql -e 'CREATE DATABASE myapp_test;'
+#   - sudo mysql -e 'CREATE DATABASE myapp_test2;'
+#   - mysql -e "SELECT * FROM mysql.user;"
+#   - sudo ls -la /etc | grep init
